@@ -8,6 +8,7 @@ var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var symbols = ["!", "*", "+", "-", "?", "@", "^", "_", "~"];
 var userChoices = [];
 var password = ''
+
 // generatePassword function
 function generatePassword() {
   var passwordLength = prompt("How many characters would you like your password? Choose between 8 and 128");
@@ -23,6 +24,7 @@ function generatePassword() {
     confirmLowercase = confirm("Will this contain Lowercase letters?");
   };
 
+  // if statements to concat var userChoices with the selected actual choices of the user.
   if (confirmLowercase) {
     userChoices = userChoices.concat(alphaLowercase);
   }
@@ -39,20 +41,18 @@ function generatePassword() {
     userChoices = userChoices.concat(symbols);
     
   }
+
+  //Create passwordBase and set it equal to userChoices joined into a string.
   var passwordBase = userChoices.join("");
   for (var i = 0; i < passwordLengthInteger; i++) {
     var randomNumber = Math.floor(Math.random() * passwordBase.length);
     password += passwordBase.substring(randomNumber, randomNumber +1)
   };
 
-  console.log(password);
+  //Call writePassword and pass the value of the math above as the argument for writePassword.
   writePassword(password)
   return password;
 };
-
-//1. Prompt password length; Definte passowrd length, check if it is between 8 and 128, promptLowercase()
-
-//promntLowercase . Check for yes/no lowercase. function called prompt upperCase
 
 
 // Write password to the #password input
